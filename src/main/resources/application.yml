@@ -1,0 +1,38 @@
+# RailFlow Application Configuration
+# Updated: 2026-06-10
+server:
+  port: 8080
+
+spring:
+  application:
+    name: railflow
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/railflow}
+    username: ${POSTGRES_USER:railflow}
+    password: ${POSTGRES_PASS:railflow}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
+    consumer:
+      group-id: railflow-group
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+jwt:
+  secret: ${JWT_SECRET:default-secret-change-in-production}
+  expiry-ms: 86400000
+
+logging:
+  level:
+    com.railflow: DEBUG

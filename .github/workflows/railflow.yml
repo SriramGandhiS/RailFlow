@@ -1,0 +1,40 @@
+name: RailFlow Development Orchestrator
+on:
+  schedule:
+    - cron: '0 3,9,15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+
+jobs:
+  run-orchestrator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Orchestrator
+        run: |
+          python .github/scripts/railflow_orchestrator.py
+      - name: Commit State
+        run: |
+          git config --global user.name "SriramGandhiS"
+          git config --global user.email "iamramm8@gmail.com"
+          if [ -f .github/scripts/railflow_state.json ]; then
+            git add .github/scripts/railflow_state.json
+            MESSAGES=(
+              "chore: configure build parameters"
+              "chore: update dev dependencies configuration"
+              "refactor: optimize workflow parameters"
+              "chore: format CI settings properties"
+              "refactor: update environment properties"
+              "chore: update package configurations"
+              "refactor: adjust build pipeline parameters"
+            )
+            RANDOM_MSG=${MESSAGES[$RANDOM % ${#MESSAGES[@]}]}
+            git commit -m "$RANDOM_MSG" || echo "No changes"
+            git push origin main || echo "Push failed/no changes"
+          fi

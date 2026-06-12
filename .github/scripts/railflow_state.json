@@ -1,0 +1,16 @@
+{
+  "current_day": 3,
+  "last_run_date": "2026-06-12",
+  "history": [
+    {
+      "day": 1,
+      "status": "COMPLETED",
+      "date": "2026-06-08"
+    },
+    {
+      "day": 2,
+      "status": "COMPLETED",
+      "date": "2026-06-12"
+    }
+  ]
+}
