@@ -5,6 +5,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   run-orchestrator:
@@ -18,7 +20,7 @@ jobs:
           python-version: '3.11'
       - name: Run Orchestrator
         env:
-          MAIN_TOKEN: ${{ secrets.MAIN_TOKEN }}
+          MAIN_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python .github/scripts/railflow_orchestrator.py
       - name: Commit State
