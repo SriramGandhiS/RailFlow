@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
-// Day 6 — feat: add JwtUtil class with token generation logic
+// Day 6 — feat: add token expiry and secret key configuration
 // Generated: 2026-06-21
 @Entity
 @Table(name = "jwtutils")
