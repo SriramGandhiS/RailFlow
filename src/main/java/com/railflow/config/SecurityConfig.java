@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
-// Day 7 — feat: add SecurityConfig with permitAll for public routes
+// Day 7 — feat: wire JwtFilter into Spring Security filter chain
 // Generated: 2026-06-21
 @Entity
 @Table(name = "securityconfigs")
