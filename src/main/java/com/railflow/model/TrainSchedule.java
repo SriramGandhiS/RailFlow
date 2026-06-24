@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
-// Day 15 — feat: add TrainSchedule entity with departure date and availability
+// Day 15 — feat: add seat availability fields by class to TrainSchedule
 // Generated: 2026-06-24
 @Entity
 @Table(name = "trainschedules")
