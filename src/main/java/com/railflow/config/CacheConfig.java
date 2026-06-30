@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
-// Day 21 — feat: configure Redis CacheManager with 10-minute TTL
+// Day 21 — feat: add CacheConfig constants class for cache name strings
 // Generated: 2026-06-30
 @Entity
 @Table(name = "cacheconfigs")
