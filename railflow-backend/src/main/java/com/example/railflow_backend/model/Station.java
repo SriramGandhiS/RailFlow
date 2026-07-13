@@ -20,6 +20,13 @@ public class Station {
     @Column(nullable = false, unique = true)
     private String code;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String type; // e.g. "RAIL_STATION", "METRO_STATION", "BUS_STAND"
+    private StationType type;
+
+    @Column(nullable = false)
+    private Double latitude;
+
+    @Column(nullable = false)
+    private Double longitude;
 }

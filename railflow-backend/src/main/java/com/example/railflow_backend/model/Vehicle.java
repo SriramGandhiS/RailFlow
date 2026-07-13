@@ -20,9 +20,19 @@ public class Vehicle {
     @Column(nullable = false)
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String type; // e.g. "EXPRESS", "SUPERFAST", "METRO", "GOVT_BUS", "PRIVATE_BUS"
+    private VehicleType type;
 
     @Column(name = "operator_name", nullable = false)
-    private String operatorName; // Southern Railways, Chennai Metro, TNSTC, KSRTC
+    private String operatorName;
+
+    @Column(name = "sleeper_capacity", nullable = false)
+    private int sleeperCapacity;
+
+    @Column(name = "ac_capacity", nullable = false)
+    private int acCapacity;
+
+    @Column(name = "general_capacity", nullable = false)
+    private int generalCapacity;
 }
