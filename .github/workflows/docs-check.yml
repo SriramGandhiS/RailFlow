@@ -1,0 +1,37 @@
+name: Documentation Check
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  check-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Verify Docs Assets
+      run: |
+        echo "Verifying docs directory..."
+        if [ ! -d "docs" ]; then
+          echo "ERROR: docs directory does not exist!"
+          exit 1
+        fi
+        
+        echo "Verifying audit log..."
+        if [ ! -f "docs/ENGINEERING_AUDIT_LOG.md" ]; then
+          echo "ERROR: docs/ENGINEERING_AUDIT_LOG.md is missing!"
+          exit 1
+        fi
+        
+        echo "Verifying success criteria checklist..."
+        if [ ! -f "docs/AUG31_CHECKLIST.md" ]; then
+          echo "ERROR: docs/AUG31_CHECKLIST.md is missing!"
+          exit 1
+        fi
+        
+        echo "Documentation verification PASSED."
