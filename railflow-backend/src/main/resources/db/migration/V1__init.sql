@@ -89,4 +89,4 @@ CREATE TABLE IF NOT EXISTS waiting_list_entries (
 );
 
 -- Seed initial roles
-INSERT INTO roles (name) VALUES ('USER'), ('ADMIN') ON CONFLICT (name) DO NOTHING;
+INSERT INTO roles (name) VALUES ('USER'), ('ADMIN');
