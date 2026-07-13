@@ -1,4 +1,4 @@
-name: Documentation Check
+name: Documentation Validation
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master, main ]
 
 jobs:
-  check-docs:
+  validate-docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,4 +34,10 @@ jobs:
           exit 1
         fi
         
-        echo "Documentation verification PASSED."
+        echo "Verifying project state file..."
+        if [ ! -f "docs/PROJECT_STATE.json" ]; then
+          echo "ERROR: docs/PROJECT_STATE.json is missing!"
+          exit 1
+        fi
+        
+        echo "Documentation validation PASSED."

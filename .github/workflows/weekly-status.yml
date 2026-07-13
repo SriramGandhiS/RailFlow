@@ -1,0 +1,31 @@
+name: Weekly Status compiler
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Every Sunday at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  weekly-status:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Run Weekly Status Script
+      run: python scripts/generate_weekly_status.py
+
+    - name: Commit and Push Status
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add docs/WEEKLY_STATUS.md
+        git diff --quiet && git diff --staged --quiet || (git commit -m "docs: auto-update weekly status report" && git push)
