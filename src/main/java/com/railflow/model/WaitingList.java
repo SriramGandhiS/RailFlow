@@ -12,5 +12,7 @@ public class WaitingList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     private LocalDateTime createdAt = LocalDateTime.now();
 }
