@@ -1,7 +1,11 @@
 package com.railflow;
 
-// feat: create base package structure for railflow
-// Generated: 2026-06-10
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class RailflowApplication {
-    // Implementation
+    public static void main(String[] args) {
+        SpringApplication.run(RailflowApplication.class, args);
+    }
 }
