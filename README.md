@@ -6,34 +6,33 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
 ![Redis](https://img.shields.io/badge/Redis-7-red)
-![Kafka](https://img.shields.io/badge/Kafka-3.6-black)
 
 ## Overview
 
 RailFlow is a full-featured railway reservation platform built with modern Java and Spring Boot.
 
-**Day 1 progress** — feat: add .gitignore and README skeleton
-*Last updated: 2026-06-10*
+**Day 45/45 progress** — docs: update README with complete setup and deployment instructions
+*Last updated: 2026-07-24*
 
 ## Features
 
 - JWT-based authentication with role-based access
 - Real-time train search with Redis caching
-- Seat booking with distributed locking (Redisson)
+- Seat booking with distributed locking
 - FIFO waiting list with automatic promotion
 - Kafka-based notification events
 - React frontend with admin dashboard
 
 ## Tech Stack
 
-| Layer       | Technology                        |
-|-------------|-----------------------------------|
-| Backend     | Spring Boot 3, Spring Security    |
-| Database    | PostgreSQL + Flyway migrations    |
-| Cache       | Redis (Spring Cache + Redisson)   |
-| Events      | Apache Kafka                      |
-| Frontend    | React 18, Vite, Tailwind CSS      |
-| Auth        | JWT (JJWT 0.12.3)                 |
+| Layer    | Technology                     |
+|----------|-------------------------------|
+| Backend  | Spring Boot 3, Spring Security |
+| Database | PostgreSQL + Flyway migrations |
+| Cache    | Redis                          |
+| Events   | Apache Kafka                   |
+| Frontend | React 18, Vite                 |
+| Auth     | JWT (JJWT 0.12.3)              |
 
 ## Getting Started
 
